@@ -111,8 +111,8 @@ class Alumno (models.Model):
 		return Alumno.objects.order_by('rut')
 
 	@staticmethod
-	def UserId(id):
-		return Alumno.objects.get(user=id)
+	def BuscarId(id):
+		return Alumno.objects.get(id=id)
 
 
 

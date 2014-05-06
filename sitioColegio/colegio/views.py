@@ -63,11 +63,13 @@ def editarAlumno(request):
  
             return HttpResponseRedirect('/colegio/')
     else:
-
+    	if request.GET:
+    		print request.GET['id']
+    		alumno = Alumno.BuscarId(request.GET['id'])
+    		form = AlumnoForm(instance=alumno)	
         form = AlumnoForm()
     args = {}
     args.update(csrf(request))
-    print request
     args['form'] = form
  
     return render_to_response('crear_alumno.html', args)
