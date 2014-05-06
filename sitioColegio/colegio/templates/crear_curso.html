@@ -1,0 +1,12 @@
+{% extends "colegio/base.html" %}
+{%block content %}
+<form action="/colegio/crear_curso/" method="POST" role="form">{% csrf_token %}
+	<legend>Form title</legend>
+	<div class="form-group">
+		<label for="">label</label>
+		{{ form.as_ul }}
+	</div>
+	<button type="submit" class="btn btn-primary">Crear Curso</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "colegio/base.html" %}
+
+{%block header %}
+
+<link href="{{STATIC_URL}}css/multi-select.css" rel="stylesheet" type="text/css" />
+<script src="{{STATIC_URL}}js/jquery.multi-select.js" ></script>
+
+
+
+{% endblock %}
+
+{%block content %}
+<select id='pre-selected-options' multiple='multiple'>
+  <option value='elem_1' selected>elem 1</option>
+  <option value='elem_2'>elem 2</option>
+  <option value='elem_3'>elem 3</option>
+  <option value='elem_4' selected>elem 4</option>
+  <option value='elem_100'>elem 100</option>
+</select>
+
+<script type="text/javascript">
+	$('#pre-selected-options').multiSelect();
+</script>
+
+
+{% endblock %}

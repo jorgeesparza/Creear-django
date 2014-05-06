@@ -1,0 +1,9 @@
+{% extends "colegio/base.html" %}
+{%block content %}
+<form action="/colegio/crear_alumno/" method = 'post' role="form">{% csrf_token %}
+<ul>
+{{ form.as_ul }}</ul>
+<button type="submit" class="btn btn-primary">Crear Alumno</button>
+</form>
+
+{% endblock %}

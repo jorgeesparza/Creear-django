@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<title>{% block title %}Inicio{% endblock %}</title>
+		<meta charset="UTF-8">
+		<meta name=description content="">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{% block header %}{%endblock%}
+		<!-- Bootstrap CSS -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<div class="page-header">
+		  <h1>title<small>subtext</small></h1>
+		</div>
+		<div class="panel panel-primary">
+			  <div class="panel-heading">
+					<h3 class="panel-title">Panel title</h3>
+			  </div>
+			  <div class="panel-body">
+						{% block content %}{% endblock %}
+			  </div>
+		</div>
+	
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+{% extends "colegio/base.html" %}
+
+{%block content %}
+<ol class="breadcrumb">
+  <li><a href=" {% url 'crear_alumno' %} ">Crear Alumno</a></li>
+  <li><a href="{% url 'crear_curso' %}">Crear Curso</a></li>
+  <li><a href="{% url 'alumno_curso' %}">Asignar Alumnos a Curso</a></li>
+</ol>
+
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Alumnos</h3>
+        <p>
+        	
+
+<div id="busqueda_col_der">
+        	<!--inicio busqueda col der titulo-->
+            <div id="busqueda_col_der_titulo">
+            <h2 style="color:#FFF">Resultados</h2>                    
+            </div>
+            <!--fin busqueda col der titulo-->
+            
+            {% if latest_alumnos_list == 789 %}
+				<p>No se Encontraron Alumnos</p>
+			{% else %}
+				{% if latest_alumnos_list %}
+
+					<table width="100%">
+			          <tr>
+                  <td><strong>R.U.N</strong></td>
+			            <td><strong>Nombres</strong></td>
+			            <td colspan="2" style="text-align: center;"><strong>Apellidos</strong></td>
+			            <td><strong>acción</strong></td>
+			          </tr>
+			          {% for alumno in latest_alumnos_list %}
+						<tr>
+						
+							<td><a href="">{{ alumno.rut }}</a></td>
+              				<td><a href="">{{ alumno.nombres }}</a></td>
+							<td><a href="">{{ alumno.apellidoPaterno }}</a></td>
+							<td><a href="">{{ alumno.apellidoMaterno }}</a></td>
+							<td><a href="{% url 'editar_alumno' %}?id={{ alumno.id }}"><span class="label label-primary">Editar</span></a>
+						</tr>
+						{% endfor %}
+			          </table>
+             <div class="pagination">
+			    <span class="step-links">
+			        {% if latest_alumnos_list.has_previous %}
+			            <a href="?page={{ latest_alumnos_list.previous_page_number }}">Anterior</a>&nbsp
+			        {% endif %}
+
+			        <span class="current">
+			            Página {{ latest_alumnos_list.number }} de {{ latest_alumnos_list.paginator.num_pages }}.
+			        </span>
+
+			        {% if latest_alumnos_list.has_next %}&nbsp
+			            <a href="?page={{ latest_alumnos_list.next_page_number }}">Siguiente</a>
+			        {% endif %}
+			    </span>
+			</div>   
+			{% else %}
+				<p>No se Encontraron Alumnos</p>
+			{% endif %}
+		{% endif %}
+       
+    </div>
+
+
+
+
+
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        
+
+
+
+
+{% endblock %}
+
